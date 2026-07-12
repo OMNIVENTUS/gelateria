@@ -9,3 +9,10 @@ storybook-static/
 *.log
 .DS_Store
 .env*.local
+
+# standalone_export : source de vérité (arbre extrait tracké).
+# On exclut l'archive et les blobs redondants/lourds :
+standalone_export/La carte du menu.zip
+standalone_export/.thumbnail
+standalone_export/uploads/
+standalone_export/export/*.html

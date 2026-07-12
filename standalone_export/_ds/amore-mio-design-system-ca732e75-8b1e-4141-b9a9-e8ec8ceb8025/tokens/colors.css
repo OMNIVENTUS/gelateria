@@ -1,0 +1,46 @@
+/* Amore Mio — Colour system (LOCKED by client, do not correct)
+   Light theme only. No gradients. Vivid colour comes only from photography.
+   Warm-tinted shadows only: rgba(55,40,29, a). */
+
+:root {
+  /* ---- Brand palette (raw) ---- */
+  --crema:     #F6F1E8; /* page background */
+  --sabbia:    #EAE0D0; /* alternating / banded sections */
+  --taupe:     #A6988A; /* borders, secondary text */
+  --espresso:  #37281D; /* primary text */
+  --latte:     #FFFFFF; /* cards, elevated surfaces */
+  --caramello: #B97C3F; /* THE single accent — CTA, links, focus */
+
+  /* ---- Accent tints (derived from caramello, for hover/press/rings) ---- */
+  --caramello-ink:   #9A6531; /* pressed / darker accent text */
+  --caramello-soft:  #E7D6C2; /* accent wash on crema (chips, hovers) */
+  --caramello-line:  #D8C3A6; /* faint accent hairline */
+
+  /* ---- Neutral steps (all warm, sampled between the locked five) ---- */
+  --taupe-40:  #C9BEAF; /* lighter taupe — disabled text, faint rules */
+  --taupe-60:  #B8AB9C;
+  --espresso-70: rgba(55,40,29,0.70); /* muted body on light */
+  --espresso-45: rgba(55,40,29,0.45); /* captions */
+
+  /* ============ Semantic aliases ============ */
+  --bg-page:        var(--crema);
+  --bg-alt:         var(--sabbia);
+  --surface-card:   var(--latte);
+  --surface-sunken: var(--crema);
+
+  --text-primary:   var(--espresso);
+  --text-secondary: var(--taupe);
+  --text-muted:     var(--espresso-45);
+  --text-on-accent: var(--latte);
+
+  --accent:         var(--caramello);
+  --accent-hover:   var(--caramello-ink);
+  --accent-wash:    var(--caramello-soft);
+  --link:           var(--caramello);
+
+  --border:         var(--taupe);         /* full-strength divider / outline */
+  --border-soft:    var(--caramello-line);/* hairline inside warm surfaces */
+  --border-faint:   var(--taupe-40);
+
+  --focus-ring:     var(--caramello);
+}

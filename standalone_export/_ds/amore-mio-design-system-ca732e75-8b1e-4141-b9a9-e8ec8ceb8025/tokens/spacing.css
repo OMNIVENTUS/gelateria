@@ -1,0 +1,41 @@
+/* Amore Mio — Spacing, radius, shadow, layout
+   Radius lock: buttons = pill, cards = 24px, images = 16px.
+   Shadows: warm-tinted only, rgba(55,40,29, a). */
+
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1:  0.25rem;  /* 4  */
+  --space-2:  0.5rem;   /* 8  */
+  --space-3:  0.75rem;  /* 12 */
+  --space-4:  1rem;     /* 16 */
+  --space-5:  1.5rem;   /* 24 */
+  --space-6:  2rem;     /* 32 */
+  --space-7:  3rem;     /* 48 */
+  --space-8:  4rem;     /* 64 */
+  --space-9:  6rem;     /* 96 */
+  --space-10: 8rem;     /* 128 */
+
+  /* ---- Radius (LOCKED) ---- */
+  --radius-pill:   999px; /* buttons, chips, pills */
+  --radius-card:   24px;  /* cards, panels, sheets */
+  --radius-image:  16px;  /* all imagery */
+  --radius-sm:     10px;  /* small inputs, tags */
+
+  /* ---- Warm shadows (rgba(55,40,29, a) only) ---- */
+  --shadow-xs:  0 1px 2px rgba(55,40,29,0.06);
+  --shadow-sm:  0 2px 8px rgba(55,40,29,0.08);
+  --shadow-md:  0 8px 24px rgba(55,40,29,0.08);
+  --shadow-lg:  0 18px 48px rgba(55,40,29,0.12);
+  --shadow-card: var(--shadow-md);
+
+  /* ---- Layout ---- */
+  --container:      1200px;
+  --container-text: 720px;  /* editorial measure */
+  --gutter:         clamp(1.25rem, 4vw, 3rem); /* @kind spacing */
+
+  /* ---- Motion (restrained, no bounce) ---- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --dur-fast:  140ms; /* @kind other */
+  --dur-base:  220ms; /* @kind other */
+  --dur-slow:  420ms; /* @kind other */
+}
