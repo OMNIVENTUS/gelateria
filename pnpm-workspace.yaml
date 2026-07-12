@@ -1,5 +1,8 @@
 verifyDepsBeforeRun: false
-onlyBuiltDependencies:
+# Ces scripts de build ne sont pas requis (binaires fournis par les paquets
+# plateforme). ignoredBuiltDependencies = accepter & ignorer sans faire échouer
+# `pnpm install` (sinon ERR_PNPM_IGNORED_BUILDS → exit 1 en CI).
+ignoredBuiltDependencies:
   - "@swc/core"
   - esbuild
   - sharp
