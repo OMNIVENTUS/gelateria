@@ -1,4 +1,13 @@
-# CLAUDE.md — `gelateria` (Amore Mio)
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+# `gelateria` (Amore Mio)
+
+## 0. État actuel du repo (pre-scaffold — lire en premier)
+Le repo ne contient pour l'instant que la **documentation** : `CLAUDE.md`, `README.md`, `.gitignore`, `standalone_export/README.md`. **Rien n'est encore échafaudé** — pas de `package.json`, `app/`, `src/`, `lib/`, `.storybook/`, `tests/`, ni `next.config.ts`. Les commandes `pnpm dev/build/storybook` (README) ne tournent donc pas encore : l'app est à créer en suivant ce document (§3 puis §4+).
+
+⚠️ **`standalone_export/` est VIDE** (seulement son README). La « source de vérité » (§1) — `_ds/`, `planche/*.jsx`, photos, previews, `og-image.jpg` — **n'a pas encore été déposée par le client**. Aucune session (DS ou page) ne peut démarrer tant que l'export n'est pas là : c'est un **bloquant**, ne rien inventer (cf. §8 et README « À fournir »).
 
 ## Rôle du projet
 Recréer **proprement en Next.js** le site vitrine **Amore Mio — L'Atelier de la Glace** (gelateria artisanale, La Marsa / Tunis), qui existait comme export HTML « bundler » Claude Design (React/Babel rendu dans le navigateur — lent, non indexable, aperçus sociaux cassés).
@@ -177,3 +186,13 @@ Toute session (insertion DS, puis **chaque page**) suit ce protocole. **DONE si 
 ## Prérequis
 - `pnpm`, Node 20. `gh` authentifié (org **OMNIVENTUS**). Pour les tests visuels : navigateurs Playwright (`pnpm exec playwright install chromium firefox webkit`).
 - GitHub Pages : source = **GitHub Actions** (pas « branch »). Ne pas supprimer `out/.nojekyll`.
+
+Réflexe skills d'abord. Toute création ou modification de feature commence par un brainstorming concerté (superpowers:brainstorming) puis s'appuie sur les skills adaptés de la marketplace. On ne code jamais une nouveauté avant d'avoir cadré l'intention.
+
+Repo public. Aucun secret, clé, token ni PII committé. Les valeurs sensibles vivent en variables d'environnement (jamais NEXT_PUBLIC_* pour un secret), et .gitignore interdit les dumps/artefacts de données.
+
+Standards non négociables. TypeScript strict (strict: true, zéro any non justifié). Internationalisable, français par défaut (jamais de FR-only en dur, jamais d'écran non traduit). A11y RGAA / WCAG AA minimum : focus visible, cursor: pointer sur tout cliquable, cibles tactiles ≥ 44×44px, navigation clavier complète, prefers-reduced-motion respecté. Light ET dark systématiquement vérifiés avant de conclure un contrôle visuel. Vitrine oblige : performance (Core Web Vitals / Lighthouse ≥ 90) et SEO sont des critères de done, pas des bonus. Aucun NaN, undefined ou état vide brut à l'écran (fallbacks explicites : empty state, error boundary).
+
+Gate qualité obligatoire (HARD) avant de déclarer une tâche finie. Nécessaire mais pas suffisant : lint, typecheck, test verts. On lance ensuite /codebase-quality-auditor (puis on corrige tout finding lié au diff et on reboucle jusqu'à zéro), et un cycle qa-harness (unit + visuel light/dark + a11y). La preuve de "fait" est le rendu runtime observé, pas le gate vert. Toute vérification de complétion passe par superpowers:verification-before-completion (evidence before assertions).
+
+Déploiement. Site déployé sur GitHub Pages (build statique). Conventional Commits atomiques par tâche, en français. Push uniquement sur demande. Le travail multi-fichiers / multi-couches se traite en mode orchestrateur (décompose → sous-agents → boucle dev/test/QA/fix), jamais en solo.
