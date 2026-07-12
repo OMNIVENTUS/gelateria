@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_BASE_PATH: /gelateria
-      NEXT_PUBLIC_SITE_URL: https://omniventus.github.io/gelateria
+      NEXT_PUBLIC_SITE_URL: https://omniventus.com/gelateria
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
