@@ -1,0 +1,131 @@
+/* ProHero — Hero split sobre (texte + photo). Porté depuis pro-board.jsx (ProHero).
+   Gutter/padding EXACTS de la planche : gut m20/t48/d64 ; padTop m108/t150 ;
+   padBottom m64/t96. */
+
+/* Conteneur de nav — posé sur le hero clair (banner landmark, hors <main>).
+   Absolu (défile avec le hero, comme la planche), top 16/28, aligné au gutter. */
+.nav {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  z-index: 5;
+}
+@media (min-width: 640px) {
+  .nav {
+    top: 28px;
+    left: 48px;
+    right: 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .nav {
+    left: 64px;
+    right: 64px;
+  }
+}
+
+.hero {
+  position: relative;
+  background: var(--crema);
+  padding: 108px 20px 64px;
+}
+@media (min-width: 640px) {
+  .hero {
+    padding: 150px 48px 96px;
+  }
+}
+@media (min-width: 1024px) {
+  .hero {
+    padding: 150px 64px 96px;
+  }
+}
+
+/* Layout : empilé en mobile (texte puis photo), 2 colonnes ensuite. */
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media (min-width: 640px) {
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+}
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 72px;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  letter-spacing: -0.01em;
+  font-size: 36px;
+  line-height: 1.08;
+  color: var(--espresso);
+  text-wrap: pretty;
+  max-width: 18ch;
+}
+@media (min-width: 640px) {
+  .title {
+    font-size: 44px;
+  }
+}
+@media (min-width: 1024px) {
+  .title {
+    font-size: 56px;
+  }
+}
+
+.lead {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--espresso-70);
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+@media (min-width: 640px) {
+  .lead {
+    font-size: 17px;
+  }
+}
+
+.ctaRow {
+  margin-top: 6px;
+}
+
+.media {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: 50% 45%;
+  border-radius: var(--radius-image);
+}
+@media (min-width: 640px) {
+  .media {
+    height: 460px;
+  }
+}
+@media (min-width: 1024px) {
+  .media {
+    height: 560px;
+  }
+}

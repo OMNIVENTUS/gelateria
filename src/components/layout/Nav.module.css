@@ -57,7 +57,7 @@
   font-size: 15px;
   line-height: 1;
   color: var(--crema);
-  background: var(--accent);
+  background: var(--caramello-ink); /* fond CTA — AA texte blanc */
   border-radius: var(--radius-pill);
   padding: 14px 24px;
   box-shadow: var(--shadow-sm);
@@ -65,13 +65,13 @@
   transition: background var(--dur-base) var(--ease);
 }
 .ctaFull:hover {
-  background: var(--accent-hover);
+  background: var(--caramello-press);
 }
 .ctaMini {
   width: 46px;
   height: 46px;
   border-radius: var(--radius-pill);
-  background: var(--accent);
+  background: var(--caramello-ink);
   color: var(--crema);
   align-items: center;
   justify-content: center;

@@ -1,0 +1,34 @@
+/* ProTitle — titre de section (h2) porté depuis planche V2Title.
+   Tailles EXACTES de la planche : m 30 / t 38 / d 46 px (≠ SectionHeading DS
+   dont la borne h2 s'arrête à 40 px) — fidélité au rendu Claude Design. */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  text-align: left;
+}
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  color: var(--espresso);
+  font-size: 30px;
+}
+@media (min-width: 640px) {
+  .title {
+    font-size: 38px;
+  }
+}
+@media (min-width: 1024px) {
+  .title {
+    font-size: 46px;
+  }
+}

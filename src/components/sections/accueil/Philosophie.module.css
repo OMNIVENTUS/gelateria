@@ -1,0 +1,35 @@
+.section {
+  background: var(--crema);
+  padding: 88px 20px;
+}
+.statement {
+  margin: 0 auto;
+  max-width: 65ch;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: 26px;
+  line-height: 1.32;
+  color: var(--espresso);
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 112px 48px;
+  }
+  .statement {
+    font-size: 34px;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding: 136px 64px;
+  }
+  .statement {
+    width: 820px;
+    max-width: 65ch;
+    font-size: 42px;
+  }
+}

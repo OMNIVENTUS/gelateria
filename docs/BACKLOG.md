@@ -7,13 +7,15 @@
 ## Journal de statut
 | Tâche | Titre | Statut | Gate 1 | Gate 2 | Notes |
 |---|---|---|---|---|---|
-| T0 | Scaffold | 🟡 En cours | — | — | backlog validé, décisions verrouillées |
-| T1 | Design System | ⬜ Bloquant | — | — | aucune page avant DS vert |
-| T2 | Page Accueil | ⬜ Bloqué par T1 | — | — | dépend décision hero-scrim |
-| T3 | Page La Carte | ⬜ Bloqué par T1 | — | — | prix DT fournis |
-| T4 | Page Notre histoire | ⬜ Bloqué par T1 | — | — | texte placeholder client |
-| T5 | Page Professionnels | ⬜ Bloqué par T1 | — | — | CTA « devis » |
-| T6 | Transverses (SEO/OG, deploy, perf) | ⬜ Bloqué par T2-5 | — | — | |
+| T0 | Scaffold | ✅ Fait | n/a | n/a | green gate: typecheck/lint 0-0/build out/ + SB9 OK · commits ae32f75, 1ed9ad2 |
+| T1 | Design System | ✅ Fait | §3 met | AA CTA calc. | lint 0/0 · 735 baselines 3 moteurs vertes · commit 91b2cb8 · DS débloque les pages |
+| T2 | Page Accueil | 🔵 En QA | 84–95%* | ✅ PASS | portée (12 sections) ; convergence gated par photos ré-encodées |
+| T3 | Page La Carte | 🔵 En QA | 83–91%* | ✅ PASS | portée (9 groupes prix) ; dérive verticale lignes à corriger |
+| T4 | Page Notre histoire | 🔵 En QA | 94–98%* | ✅ PASS | desktop/tablette ≥97% ; placeholders conservés |
+| T5 | Page Professionnels | 🔵 En QA | 94–99%* | ✅ PASS | desktop/tablette ≥97% ; CTA « devis » AA-corrigé |
+| T6 | Transverses (SEO/OG, deploy, perf) | 🟡 Base OG en place | — | — | JSON-LD/sitemap/robots/workflow à finaliser |
+
+\* Gate 1 = convergence visuelle (pixelmatch seuil perceptuel 0.2, score=min viewports). Desktop histoire/pro ≥97%. Écarts restants dominés par : (a) **ré-encodage photo webp q80 vs jpg original** (transformation perf mandatée, non réductible — surtout accueil/carte photo-lourds), (b) dérive verticale de texte cumulée sur pages mobiles très hautes. Gate 2 (QA adversarial) = **PASS 0 bloquant sur les 4 pages**.
 
 Légende : ⬜ à faire · 🟡 en cours · 🔵 en QA · ✅ double PASS · 🔴 FAIL (rebouclé)
 

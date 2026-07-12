@@ -1,0 +1,97 @@
+/* ProEtapes — « Comment ça marche » : 3 étapes numérotées (grands chiffres
+   Cormorant taupe). Fond crema. Porté depuis pro-board.jsx (ProEtapes).
+   padY m72/t96/d120, gut m20/t48/d64. */
+.section {
+  background: var(--crema);
+  padding: 72px 20px;
+}
+@media (min-width: 640px) {
+  .section {
+    padding: 96px 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding: 120px 64px;
+  }
+}
+
+.title {
+  margin-bottom: 32px;
+}
+@media (min-width: 640px) {
+  .title {
+    margin-bottom: 52px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 22px 4px;
+}
+/* Mobile : bord haut sur les étapes 2 et 3. */
+.step + .step {
+  border-top: 1px solid var(--taupe-40);
+}
+@media (min-width: 640px) {
+  .step {
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+  .step + .step {
+    border-top: none;
+  }
+}
+
+.num {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  font-size: 44px;
+  line-height: 1;
+  color: var(--taupe);
+}
+@media (min-width: 640px) {
+  .num {
+    font-size: 56px;
+  }
+}
+
+.stepTitle {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--espresso);
+}
+@media (min-width: 640px) {
+  .stepTitle {
+    font-size: 24px;
+  }
+}
+
+.stepText {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--espresso-70);
+  max-width: 32ch;
+}

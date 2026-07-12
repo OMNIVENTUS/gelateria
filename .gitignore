@@ -6,6 +6,7 @@ out/
 storybook-static/
 /test-results/
 /playwright-report/
+tests/convergence/
 *.log
 .DS_Store
 .env*.local

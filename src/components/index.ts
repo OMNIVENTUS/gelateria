@@ -19,3 +19,7 @@ export { NAV_LINKS, DEVIS_HREF } from "./layout/nav-links";
 
 // Contenu
 export { HoursTable, type HoursTableProps } from "./content/HoursTable";
+
+// Motion
+export { Reveal, type RevealProps } from "./motion/Reveal";
+export { FabController } from "./motion/FabController";

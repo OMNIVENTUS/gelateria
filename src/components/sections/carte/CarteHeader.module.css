@@ -1,0 +1,85 @@
+/* En-tête « La carte ». Gutter & tailles = valeurs exactes de la planche
+   (carte-v2-sections.jsx). Mobile <640 / Tablette ≥640 / Desktop ≥1024. */
+.header {
+  position: relative;
+  background: var(--crema);
+  text-align: center;
+  /* mobile : 116px haut / 40px bas, gutter 20px */
+  padding: 116px 20px 40px;
+}
+
+.navWrap {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  z-index: 5;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  color: var(--taupe);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  letter-spacing: -0.01em;
+  font-size: 42px;
+  line-height: 1.05;
+  color: var(--espresso);
+}
+
+.lead {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--espresso-70);
+}
+
+/* Tablette ≥640 */
+@media (min-width: 640px) {
+  .header {
+    padding: 150px 48px 56px;
+  }
+  .navWrap {
+    top: 28px;
+    left: 48px;
+    right: 48px;
+  }
+  .eyebrow {
+    font-size: 12.5px;
+  }
+  .title {
+    font-size: 56px;
+  }
+  .lead {
+    font-size: 16.5px;
+  }
+}
+
+/* Desktop ≥1024 */
+@media (min-width: 1024px) {
+  .header {
+    padding: 150px 64px 56px;
+  }
+  .navWrap {
+    left: 64px;
+    right: 64px;
+  }
+  .title {
+    font-size: 68px;
+  }
+}

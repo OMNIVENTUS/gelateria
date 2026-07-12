@@ -7,7 +7,7 @@
   font-weight: var(--fw-medium);
   line-height: 1;
   color: var(--crema);
-  background: var(--accent);
+  background: var(--caramello-ink); /* fond CTA — AA texte blanc */
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-sm);
   white-space: nowrap;
@@ -16,7 +16,7 @@
     transform var(--dur-fast) var(--ease);
 }
 .cta:hover {
-  background: var(--accent-hover);
+  background: var(--caramello-press);
 }
 .cta:active {
   transform: scale(0.97);

@@ -12,8 +12,9 @@
   --color-taupe: #a6988a;
   --color-espresso: #37281d;
   --color-latte: #ffffff;
-  --color-caramello: #b97c3f; /* accent unique */
-  --color-caramello-ink: #9a6531; /* press / CTA — AA sur blanc */
+  --color-caramello: #b97c3f; /* accent unique (liens, eyebrows, focus ring) */
+  --color-caramello-ink: #9a6531; /* FOND de CTA — texte blanc AA (≥4.5:1) */
+  --color-caramello-press: #7f4e20; /* hover/press du CTA (AA renforcé) */
   --color-caramello-soft: #e7d6c2; /* wash */
   --color-caramello-line: #d8c3a6; /* hairline accent */
   --color-taupe-40: #c9beaf;
@@ -71,6 +72,7 @@
   --latte: var(--color-latte);
   --caramello: var(--color-caramello);
   --caramello-ink: var(--color-caramello-ink);
+  --caramello-press: var(--color-caramello-press);
   --caramello-soft: var(--color-caramello-soft);
   --caramello-line: var(--color-caramello-line);
   --taupe-40: var(--color-taupe-40);

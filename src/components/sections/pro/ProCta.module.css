@@ -1,0 +1,35 @@
+/* ProCta — CTA d'intention de la page Pro : « Demander un devis » (#contact-pro).
+   Porté depuis pro-board.jsx (ProCta) : pill Caramello + flèche inline (sans
+   cercle « button-in-button », contrairement à PrimaryCta). */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--crema);
+  background: var(--caramello-ink); /* fond CTA — AA texte blanc (cohérent DS) */
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+  transition:
+    background var(--dur-base) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+.cta:hover {
+  background: var(--caramello-press);
+}
+.cta:active {
+  transform: scale(0.97);
+}
+
+.md {
+  font-size: 15.5px;
+  padding: 16px 28px;
+}
+.lg {
+  font-size: 16px;
+  padding: 18px 32px;
+}

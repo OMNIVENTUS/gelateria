@@ -1,0 +1,29 @@
+.box {
+  position: relative;
+  border: 1px dashed var(--taupe);
+  border-radius: 14px;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 26px 24px 22px;
+}
+
+.note {
+  padding: 15px 22px 12px;
+}
+
+.label {
+  position: absolute;
+  top: -9px;
+  left: 16px;
+  background: var(--crema);
+  padding: 0 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}

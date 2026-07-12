@@ -17,3 +17,14 @@ export const WHATSAPP = `https://wa.me/${WHATSAPP_NUMBER}`;
  */
 export const absoluteUrl = (p = ""): string =>
   new URL(p.replace(/^\//, ""), `${SITE_URL}/`).toString();
+
+/**
+ * Chemin d'asset préfixé du basePath (GH Pages /gelateria) pour les <img> bruts.
+ * En static export, basePath n'est PAS auto-ajouté aux src d'<img> (contrairement
+ * aux imports statiques). asset("/photos/x.webp") → "/gelateria/photos/x.webp".
+ */
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+export const asset = (p: string): string =>
+  `${BASE_PATH}${p.startsWith("/") ? p : `/${p}`}`;
+
+export const WHATSAPP_LABEL = "Commander sur WhatsApp";

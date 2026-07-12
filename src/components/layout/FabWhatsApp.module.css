@@ -22,9 +22,13 @@
   transform: translateY(16px);
   pointer-events: none;
 }
-@media (max-width: 639px) {
+.fab {
+  right: 16px;
+  bottom: 20px;
+}
+/* FAB mobile-only (site-v2-app : bp==='m'). Desktop/tablette utilisent le CTA de nav. */
+@media (min-width: 640px) {
   .fab {
-    right: 16px;
-    bottom: 20px;
+    display: none;
   }
 }

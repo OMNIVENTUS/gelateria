@@ -1,0 +1,97 @@
+/* Corps de la carte. Valeurs exactes de la planche (carte-v2-sections.jsx).
+   Mobile <640 : 1 colonne. Tablette ≥640 : 2 colonnes gap 40. Desktop ≥1024 : gap 72. */
+.wrap {
+  background: var(--crema);
+  padding: 8px 20px 0;
+}
+
+.columns {
+  /* mobile : flux simple 1 colonne */
+}
+
+.group {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 44px;
+}
+
+/* ---- Bandeaux photo 21:9 ---- */
+.band {
+  border-radius: var(--radius-image);
+  overflow: hidden;
+  aspect-ratio: 21 / 9;
+  margin-bottom: 22px;
+}
+.bandImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bandDuo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.bandDuo .band {
+  margin-bottom: 0;
+}
+
+/* ---- Titre de groupe ---- */
+.groupHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--caramello-line);
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
+.groupTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  font-size: 26px;
+  line-height: 1.1;
+  color: var(--espresso);
+}
+.groupNote {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--taupe);
+  text-align: right;
+  flex: 0 0 auto;
+}
+
+/* Tablette ≥640 */
+@media (min-width: 640px) {
+  .wrap {
+    padding: 16px 48px 0;
+  }
+  .columns {
+    column-count: 2;
+    column-gap: 40px;
+  }
+  .group {
+    margin-bottom: 56px;
+  }
+  .bandDuo {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .groupTitle {
+    font-size: 29px;
+  }
+}
+
+/* Desktop ≥1024 */
+@media (min-width: 1024px) {
+  .wrap {
+    padding: 16px 64px 0;
+  }
+  .columns {
+    column-gap: 72px;
+  }
+}

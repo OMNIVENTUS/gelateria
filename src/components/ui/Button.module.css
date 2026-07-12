@@ -37,12 +37,12 @@
 
 /* Variants */
 .primary {
-  background: var(--accent);
+  background: var(--caramello-ink); /* fond CTA — AA texte blanc */
   color: var(--crema);
   box-shadow: var(--shadow-sm);
 }
 .primary:hover {
-  background: var(--accent-hover);
+  background: var(--caramello-press);
 }
 
 .secondary {
