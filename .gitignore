@@ -6,7 +6,8 @@ out/
 storybook-static/
 /test-results/
 /playwright-report/
-tests/convergence/
+# Artefacts de test locaux (baselines visuelles, sorties de convergence) — gates locaux, pas sur git.
+tests/
 *.log
 .DS_Store
 .env*.local
