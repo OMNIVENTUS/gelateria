@@ -18,6 +18,7 @@ const OUT_DIR = join(ROOT, "out");
 const REF_DIR = join(ROOT, "standalone_export");
 const RESULT_DIR = join(ROOT, "tests/convergence");
 const CMP_WIDTH = 720; // largeur de comparaison (downscale pour vitesse)
+const GATE1_MIN = 90; // seuil de convergence de design (.claude/qa.harness.json)
 
 const MIME = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8",
@@ -167,7 +168,7 @@ async function main() {
   console.log("\n=== CONVERGENCE (score page = min viewports) ===");
   for (const [k, v] of Object.entries(report)) {
     const parts = Object.entries(v.viewports).map(([vp, r]) => `${vp}:${r.convergence}%`).join("  ");
-    console.log(`${v.score >= 97 ? "PASS" : "FAIL"}  ${k.padEnd(15)} score=${v.score}%  | ${parts}`);
+    console.log(`${v.score >= GATE1_MIN ? "PASS" : "FAIL"}  ${k.padEnd(15)} score=${v.score}%  | ${parts}`);
   }
 }
 
