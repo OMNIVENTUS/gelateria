@@ -1,0 +1,45 @@
+{
+  "plugins": ["react", "import", "typescript"],
+  "env": { "browser": true, "es2024": true },
+  "categories": { "correctness": "error" },
+  "rules": {
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Hex brut interdit — utiliser un token DS via var(--…)."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:outline|solid|muted)$/]",
+        "message": "<Badge> tone doit être 'outline' | 'solid' | 'muted'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|ghost)$/]",
+        "message": "<Button> variant doit être 'primary' | 'secondary' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size doit être 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FlavorCard'] > JSXAttribute[name.name='layout'] > Literal[value!=/^(?:row|tile)$/]",
+        "message": "<FlavorCard> layout doit être 'row' | 'tile'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:left|center)$/]",
+        "message": "<SectionHeading> align doit être 'left' | 'center'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute[name.name='as'] > Literal[value!=/^(?:h1|h2|h3)$/]",
+        "message": "<SectionHeading> as doit être 'h1' | 'h2' | 'h3'."
+      }
+    ]
+  },
+  "ignorePatterns": [
+    "standalone_export/**",
+    "out/**",
+    "storybook-static/**",
+    ".next/**",
+    "**/*.stories.tsx"
+  ]
+}
