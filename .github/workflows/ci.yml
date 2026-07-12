@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Lint d'adhérence (oxlint)
         run: pnpm run lint
       - name: Typecheck (tsc strict)
@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Navigateurs Playwright
         run: pnpm exec playwright install --with-deps chromium firefox webkit
       - name: Build Storybook
