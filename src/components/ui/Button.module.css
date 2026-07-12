@@ -1,0 +1,70 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: 1;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background var(--dur-base) var(--ease),
+    color var(--dur-base) var(--ease),
+    box-shadow var(--dur-base) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+.base:active {
+  transform: scale(0.97);
+}
+
+/* Tailles */
+.sm {
+  font-size: var(--text-sm);
+  padding: 0.5rem 1rem;
+}
+.md {
+  font-size: 0.9375rem;
+  padding: 0.8125rem 1.625rem;
+}
+.lg {
+  font-size: var(--text-body);
+  padding: 1.125rem 2rem;
+}
+
+/* Variants */
+.primary {
+  background: var(--accent);
+  color: var(--crema);
+  box-shadow: var(--shadow-sm);
+}
+.primary:hover {
+  background: var(--accent-hover);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--espresso);
+  border-color: var(--taupe);
+}
+.secondary:hover {
+  background: var(--accent-wash);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--espresso);
+}
+.ghost:hover {
+  color: var(--accent-hover);
+}
+
+/* Désactivé */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

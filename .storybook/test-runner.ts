@@ -19,6 +19,10 @@ const config: TestRunnerConfig = {
   setup() {
     expect.extend({ toMatchImageSnapshot });
   },
+  async preVisit(page) {
+    // Déterminisme : neutraliser le mouvement (reveals overlay/FAB, transitions).
+    await page.emulateMedia({ reducedMotion: "reduce" });
+  },
   async postVisit(page, context) {
     // Attendre fonts + images avant capture (fidélité).
     await page.evaluate(async () => {
@@ -42,7 +46,11 @@ const config: TestRunnerConfig = {
     for (const vp of VIEWPORTS) {
       await page.setViewportSize({ width: vp.width, height: vp.height });
       await page.waitForTimeout(120);
-      const image = await page.screenshot({ fullPage: true });
+      const image = await page.screenshot({
+        fullPage: true,
+        animations: "disabled",
+        caret: "hide",
+      });
       expect(image).toMatchImageSnapshot({
         customSnapshotsDir: `tests/__snapshots__/${browserName}`,
         customSnapshotIdentifier: `${context.id}--${vp.name}`,

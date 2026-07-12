@@ -1,0 +1,92 @@
+.footer {
+  background: var(--espresso);
+  color: var(--crema);
+  padding: 72px var(--gutter) 32px;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 30ch;
+}
+.brandName {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 17px;
+}
+.brandTag {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-medium);
+  font-size: 15px;
+  color: rgba(246, 241, 232, 0.7);
+}
+.brandDesc {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(246, 241, 232, 0.65);
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.link {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(246, 241, 232, 0.85);
+  text-decoration: none;
+  padding: 6px 0;
+}
+.link:hover {
+  color: var(--crema);
+}
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.socialRow {
+  display: flex;
+  gap: 18px;
+  color: rgba(246, 241, 232, 0.85);
+}
+.bottom {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(246, 241, 232, 0.15);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.copy {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(246, 241, 232, 0.55);
+}
+.motto {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13.5px;
+  color: rgba(246, 241, 232, 0.55);
+}
+
+@media (max-width: 639px) {
+  .footer {
+    padding: 56px var(--gutter) 32px;
+  }
+  .top {
+    flex-direction: column;
+    gap: 36px;
+  }
+}

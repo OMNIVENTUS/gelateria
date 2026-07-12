@@ -1,0 +1,224 @@
+.root {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .root {
+    container-type: inline-size;
+  }
+}
+
+/* ---------- Barre pill (verre) ---------- */
+.shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 60px;
+  padding: 0 8px 0 22px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(166, 152, 138, 0.35);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-md);
+}
+.shell [data-part="tagline"] {
+  display: none;
+}
+
+.links {
+  display: none;
+}
+.link {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 15px;
+  color: var(--espresso);
+  text-decoration: none;
+  padding: 12px 2px;
+  white-space: nowrap;
+}
+.linkActive {
+  color: var(--accent);
+}
+
+.ctaFull,
+.ctaMini {
+  display: none;
+}
+
+/* CTA nav pleine largeur (pill Caramello, sans cercle) */
+.ctaFull {
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 15px;
+  line-height: 1;
+  color: var(--crema);
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  padding: 14px 24px;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  transition: background var(--dur-base) var(--ease);
+}
+.ctaFull:hover {
+  background: var(--accent-hover);
+}
+.ctaMini {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--crema);
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.burger {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: var(--espresso);
+  border: none;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.burger span {
+  width: 16px;
+  height: 1.5px;
+  background: var(--crema);
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    height: 72px;
+    padding: 0 13px 0 30px;
+  }
+  .shell [data-part="tagline"] {
+    display: block;
+  }
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+  .ctaFull {
+    display: inline-flex;
+  }
+  .burger {
+    display: none;
+  }
+}
+
+/* Swap CTA texte → pastille icône quand le conteneur nav < 1100px (desktop) */
+@container (max-width: 1100px) {
+  .ctaFull {
+    display: none;
+  }
+  .ctaMini {
+    display: inline-flex;
+  }
+}
+
+/* ---------- Overlay plein écran (tablette / mobile) ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(246, 241, 232, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 28px 40px;
+  box-sizing: border-box;
+  animation: amNavFade var(--dur-base) var(--ease) both;
+}
+.overlayHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.close {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--taupe);
+  background: var(--crema);
+  cursor: pointer;
+  color: var(--espresso);
+}
+.overlayNav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 64px;
+  max-width: 560px;
+}
+.overlayLink {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  font-size: 2.2rem;
+  line-height: 1.15;
+  color: var(--espresso);
+  text-decoration: none;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--caramello-line);
+}
+.overlayLinkActive {
+  color: var(--accent);
+}
+.overlayFoot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+.overlayNote {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--espresso-45);
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .revealItem {
+    animation: amNavReveal var(--dur-slow) var(--ease) both;
+  }
+}
+@keyframes amNavReveal {
+  from {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes amNavFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

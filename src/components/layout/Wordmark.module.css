@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1;
+}
+.name {
+  font-family: var(--font-label);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: calc(17px * var(--wm-scale, 1));
+  color: var(--wm-color, var(--espresso));
+}
+.tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-medium);
+  font-size: calc(12.5px * var(--wm-scale, 1));
+  color: var(--taupe);
+}
