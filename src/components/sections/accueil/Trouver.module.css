@@ -1,0 +1,157 @@
+.section {
+  background: var(--crema);
+  padding: 72px 20px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ---- Encart « exemple » (pointillé) ---- */
+.exemple {
+  position: relative;
+  border: 1px dashed var(--taupe);
+  border-radius: var(--radius-image);
+  padding: 20px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.exempleTag {
+  position: absolute;
+  top: -9px;
+  left: 16px;
+  background: var(--crema);
+  padding: 0 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+.infoRow {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.infoText {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--espresso);
+}
+
+/* ---- Bouton Itinéraire ---- */
+.itineraire {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--espresso);
+  text-decoration: none;
+  border: 1px solid var(--taupe);
+  border-radius: var(--radius-pill);
+  padding: 14px 26px;
+  transition: background var(--dur-base) var(--ease);
+}
+.itineraire:hover {
+  background: var(--accent-wash);
+}
+
+/* ---- Colonne carte ---- */
+.carte {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.map {
+  position: relative;
+  height: 260px;
+  background: var(--sabbia);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-faint);
+  overflow: hidden;
+  --map-road: #dcd2c2;
+  --map-road-thin: #e2d8c8;
+}
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.roadBase {
+  stroke: var(--map-road);
+}
+.roadThin {
+  stroke: var(--map-road-thin);
+}
+.roadDash {
+  stroke: var(--crema);
+}
+.pin {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.pinLabel {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  color: var(--espresso);
+}
+.repere {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: var(--radius-image);
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 96px 48px;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+  }
+  .map {
+    height: 300px;
+  }
+  .repere {
+    height: 190px;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding: 120px 64px;
+  }
+  .grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+  }
+  .map {
+    height: 340px;
+  }
+  .repere {
+    height: 220px;
+  }
+}

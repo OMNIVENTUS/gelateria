@@ -1,0 +1,34 @@
+.fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 40;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-pill);
+  background: var(--espresso);
+  color: var(--crema);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+  transition:
+    opacity var(--dur-base) var(--ease),
+    transform var(--dur-base) var(--ease);
+}
+.fab[data-visible="false"] {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}
+.fab {
+  right: 16px;
+  bottom: 20px;
+}
+/* FAB mobile-only (site-v2-app : bp==='m'). Desktop/tablette utilisent le CTA de nav. */
+@media (min-width: 640px) {
+  .fab {
+    display: none;
+  }
+}

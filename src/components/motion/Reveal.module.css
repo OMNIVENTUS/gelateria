@@ -1,0 +1,20 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--dur-slow) var(--ease),
+    transform var(--dur-slow) var(--ease);
+  will-change: opacity, transform;
+}
+.in {
+  opacity: 1;
+  transform: none;
+}
+/* Fail-open + reduced-motion : contenu toujours visible, jamais bloqué à opacity:0 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,139 @@
+/* ProSignature — « Les desserts signature » : 3 cellules typographiques
+   « Sur devis » + bandeau photo pleine largeur dessous. Fond crema.
+   Porté depuis pro-board.jsx (ProSignature / ProSignatureCell).
+   padY m72/t96/d120 (vertical seul) ; gutter interne m20/t48/d64. */
+.section {
+  background: var(--crema);
+  padding: 72px 0;
+}
+@media (min-width: 640px) {
+  .section {
+    padding: 96px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding: 120px 0;
+  }
+}
+
+.inner {
+  padding: 0 20px;
+}
+@media (min-width: 640px) {
+  .inner {
+    padding: 0 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .inner {
+    padding: 0 64px;
+  }
+}
+
+.title {
+  margin-bottom: 28px;
+}
+@media (min-width: 640px) {
+  .title {
+    margin-bottom: 44px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+}
+
+/* ---- Cellule (double-bezel latte → crema) ---- */
+.cell {
+  background: var(--latte);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-faint);
+  padding: 8px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+}
+.cellBody {
+  background: var(--crema);
+  border-radius: var(--radius-image);
+  padding: 34px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  flex: 1;
+  justify-content: center;
+}
+@media (min-width: 640px) {
+  .cellBody {
+    padding: 44px 28px;
+  }
+}
+.cellName {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-medium);
+  font-size: 30px;
+  line-height: 1.1;
+  color: var(--espresso);
+}
+@media (min-width: 640px) {
+  .cellName {
+    font-size: 33px;
+  }
+}
+.cellRule {
+  width: 44px;
+  border-top: 1px solid var(--taupe-40);
+}
+.cellDesc {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--espresso-70);
+  max-width: 30ch;
+}
+.cellFoot {
+  padding: 14px 14px 10px;
+  display: flex;
+  justify-content: center;
+}
+.cellPrice {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 14.5px;
+  color: var(--taupe);
+}
+
+/* ---- Bandeau photo ---- */
+.band {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: 50% 55%;
+  margin-top: 48px;
+}
+@media (min-width: 640px) {
+  .band {
+    height: 260px;
+    margin-top: 72px;
+  }
+}
+@media (min-width: 1024px) {
+  .band {
+    height: 320px;
+  }
+}

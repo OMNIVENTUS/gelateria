@@ -1,0 +1,74 @@
+/* CTA final + rappel. Valeurs exactes de la planche (CarteV2Final). */
+.final {
+  background: var(--crema);
+  padding: 56px 20px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  text-align: center;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  font-size: 28px;
+  line-height: 1.15;
+  color: var(--espresso);
+  max-width: 24ch;
+}
+.em {
+  font-weight: var(--fw-medium);
+  font-style: italic;
+}
+
+.example {
+  position: relative;
+  border: 1px dashed var(--taupe);
+  border-radius: 14px;
+  padding: 16px 22px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+.exampleTag {
+  position: absolute;
+  top: -9px;
+  left: 16px;
+  background: var(--crema);
+  padding: 0 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+.exampleItem {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--espresso-70);
+}
+
+@media (min-width: 640px) {
+  .final {
+    padding: 88px 48px 110px;
+    gap: 26px;
+  }
+  .title {
+    font-size: 34px;
+  }
+  .example {
+    flex-direction: row;
+    gap: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .final {
+    padding: 88px 64px 110px;
+  }
+  .title {
+    font-size: 40px;
+  }
+}

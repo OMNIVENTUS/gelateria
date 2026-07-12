@@ -1,0 +1,24 @@
+.section {
+  background: var(--sabbia);
+}
+.para {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--espresso-70);
+  max-width: 46ch;
+}
+.para em {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+.cta {
+  margin-top: 6px;
+}
+
+@media (min-width: 640px) {
+  .para {
+    font-size: 16.5px;
+  }
+}

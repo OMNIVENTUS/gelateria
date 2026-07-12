@@ -1,0 +1,90 @@
+/* ProPrestations — 4 blocs avec séparateurs hairline, fond sabbia.
+   Porté depuis pro-board.jsx (ProPrestations). padY m72/t96/d120, gut m20/t48/d64. */
+.section {
+  background: var(--sabbia);
+  padding: 72px 20px;
+}
+@media (min-width: 640px) {
+  .section {
+    padding: 96px 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding: 120px 64px;
+  }
+}
+
+.title {
+  margin-bottom: 28px;
+}
+@media (min-width: 640px) {
+  .title {
+    margin-bottom: 44px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 4px;
+}
+@media (min-width: 640px) {
+  .cell {
+    padding: 30px 34px;
+  }
+}
+
+/* Séparateurs hairline (taupe-40) — logique EXACTE de la planche.
+   Mobile (1 col) : bordure haute sur toutes sauf la 1re. */
+.cell + .cell {
+  border-top: 1px solid var(--taupe-40);
+}
+@media (min-width: 640px) {
+  /* 2 colonnes : reset, puis bord gauche sur la colonne de droite (2e, 4e)
+     et bord haut sur la 2e rangée (3e, 4e). */
+  .cell + .cell {
+    border-top: none;
+  }
+  .cell:nth-child(2n) {
+    border-left: 1px solid var(--taupe-40);
+  }
+  .cell:nth-child(n + 3) {
+    border-top: 1px solid var(--taupe-40);
+  }
+}
+
+.cellTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--espresso);
+  text-wrap: pretty;
+}
+@media (min-width: 640px) {
+  .cellTitle {
+    font-size: 24px;
+  }
+}
+
+.cellText {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--espresso-70);
+  max-width: 40ch;
+}

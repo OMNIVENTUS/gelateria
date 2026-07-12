@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/globegroupe-data/globe-ai-skills/main/plugins/qa-harness/skills/qa-harness/config.schema.json",
+  "project_name": "amore-mio",
+  "language": "fr",
+  "stack": "nextjs-app-router",
+
+  "docs": {
+    "root": "docs/qa",
+    "required": [
+      "README.md",
+      "FLOWS.md",
+      "REGRESSIONS.md",
+      "VISUAL.md",
+      "RGAA.md"
+    ],
+    "reports_glob": "QA_REPORT_*.md"
+  },
+
+  "repo": {
+    "base_branch": "main",
+    "app_root": ".",
+    "package_manager": "pnpm"
+  },
+
+  "commands": {
+    "gate": "pnpm lint && pnpm typecheck",
+    "build": "pnpm build",
+    "dev_server": "pnpm dev",
+    "storybook": "pnpm storybook",
+    "visual_stories": "pnpm test:visual",
+    "visual_stories_update": "pnpm test:visual:update",
+    "convergence": "node scripts/convergence.mjs",
+    "gate2_adversarial": "node scripts/qa.mjs",
+    "e2e": null,
+    "cursor_pointer": null
+  },
+
+  "environment": {
+    "app_url": "http://localhost:3000",
+    "static_export_dir": "out",
+    "visual_refs_server": "http://127.0.0.1:8770",
+    "visual_truth_dir": "standalone_export",
+    "mailpit_api": null,
+    "auth_method": null
+  },
+
+  "visual": {
+    "screenshots_dir": "docs/audits/shots",
+    "story_snapshots_dir": "tests/__snapshots__",
+    "engines": ["chromium", "firefox", "webkit"],
+    "viewports": [360, 390, 768, 1024, 1440],
+    "themes": ["light"],
+    "locales": ["fr"]
+  },
+
+  "e2e": {
+    "enabled": false,
+    "runner": "none",
+    "specs_dir": null,
+    "workers": 1,
+    "service_role_env": null,
+    "destructive_seed": null,
+    "note": "Pas de specs e2e navigation. Deux harness Playwright maison tiennent lieu de gates : scripts/convergence.mjs (Gate 1 — fidélité vs standalone_export) et scripts/qa.mjs (Gate 2 — a11y/SEO/overflow adversarial sur out/)."
+  },
+
+  "pass_criteria": {
+    "block_on_regression": true,
+    "block_on_high_flow_failure": true,
+    "a11y_blocking_severities": ["critical", "serious"],
+    "lighthouse_a11y_min": 90,
+    "convergence_min_score": 90,
+    "gate2_max_blockers": 0,
+    "visual_snapshot_diff_max_pct": 0.01
+  },
+
+  "subagents": {
+    "dispatch": ["qa-unit", "qa-e2e", "qa-visual", "qa-a11y"],
+    "reporter": "qa-reporter"
+  }
+}

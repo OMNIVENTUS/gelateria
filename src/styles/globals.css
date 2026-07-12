@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Amore Mio — Design tokens (source unique, CSS-first Tailwind v4)
+   Valeurs EXACTES reprises de standalone_export/_ds/.../tokens/*.css
+   (verrouillées client — ne pas « corriger »). CLAUDE.md §2/§3.
+   ============================================================ */
+@theme {
+  /* ---- Couleurs (generent les utilitaires bg / text / border) ---- */
+  --color-crema: #f6f1e8;
+  --color-sabbia: #eae0d0;
+  --color-taupe: #a6988a;
+  --color-espresso: #37281d;
+  --color-latte: #ffffff;
+  --color-caramello: #b97c3f; /* accent unique (liens, eyebrows, focus ring) */
+  --color-caramello-ink: #9a6531; /* FOND de CTA — texte blanc AA (≥4.5:1) */
+  --color-caramello-press: #7f4e20; /* hover/press du CTA (AA renforcé) */
+  --color-caramello-soft: #e7d6c2; /* wash */
+  --color-caramello-line: #d8c3a6; /* hairline accent */
+  --color-taupe-40: #c9beaf;
+  --color-taupe-60: #b8ab9c;
+
+  /* ---- Radius (VERROUILLÉ) ---- */
+  --radius-pill: 999px;
+  --radius-card: 24px;
+  --radius-image: 16px;
+  --radius-sm: 10px;
+
+  /* ---- Ombres chaudes (rgba(55,40,29,a) uniquement) ---- */
+  --shadow-xs: 0 1px 2px rgba(55, 40, 29, 0.06);
+  --shadow-sm: 0 2px 8px rgba(55, 40, 29, 0.08);
+  --shadow-md: 0 8px 24px rgba(55, 40, 29, 0.08);
+  --shadow-lg: 0 18px 48px rgba(55, 40, 29, 0.12);
+
+  /* ---- Familles (variables next/font, fallbacks fidèles au DS) ---- */
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-label: var(--font-marcellus), "Cormorant Garamond", serif;
+  --font-body: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* ---- Échelle typographique ---- */
+  --text-display: clamp(3rem, 6vw, 5.25rem);
+  --text-h1: clamp(2.4rem, 4.2vw, 3.5rem);
+  --text-h2: clamp(1.9rem, 3vw, 2.5rem);
+  --text-h3: 1.5rem;
+  --text-lead: 1.25rem;
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+  --text-label: 0.8125rem;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+
+  /* ---- Layout ---- */
+  --container: 1200px;
+  --container-text: 720px;
+}
+
+/* ============================================================
+   Noms de variables bruts DS + alias sémantiques.
+   Le code porté (planches → TSX) référence ces var() verbatim.
+   ============================================================ */
+:root {
+  /* palette brute */
+  --crema: var(--color-crema);
+  --sabbia: var(--color-sabbia);
+  --taupe: var(--color-taupe);
+  --espresso: var(--color-espresso);
+  --latte: var(--color-latte);
+  --caramello: var(--color-caramello);
+  --caramello-ink: var(--color-caramello-ink);
+  --caramello-press: var(--color-caramello-press);
+  --caramello-soft: var(--color-caramello-soft);
+  --caramello-line: var(--color-caramello-line);
+  --taupe-40: var(--color-taupe-40);
+  --taupe-60: var(--color-taupe-60);
+  --espresso-70: rgba(55, 40, 29, 0.7);
+  --espresso-45: rgba(55, 40, 29, 0.45);
+
+  /* alias sémantiques */
+  --bg-page: var(--crema);
+  --bg-alt: var(--sabbia);
+  --surface-card: var(--latte);
+  --surface-sunken: var(--crema);
+  --text-primary: var(--espresso);
+  --text-secondary: var(--taupe);
+  --text-muted: var(--espresso-45);
+  --text-on-accent: var(--latte);
+  --accent: var(--caramello);
+  --accent-hover: var(--caramello-ink);
+  --accent-wash: var(--caramello-soft);
+  --link: var(--caramello);
+  --border: var(--taupe);
+  --border-soft: var(--caramello-line);
+  --border-faint: var(--taupe-40);
+  --focus-ring: var(--caramello);
+
+  /* ombre carte + échelle d'espacement (base 4px) */
+  --shadow-card: var(--shadow-md);
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* poids, tracking, line-heights */
+  --fw-body: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-display: 600;
+  --tracking-label: 0.16em;
+  --tracking-wide: 0.06em;
+  --lh-display: 1.04;
+  --lh-heading: 1.12;
+  --lh-body: 1.6;
+  --lh-tight: 1.3;
+}
+
+/* ============================================================
+   Reset ciblé + fondations (Tailwind preflight déjà importé)
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus-visible global — ring Caramello 2px offset 3px (CLAUDE.md §8).
+   JAMAIS écrasé par un outline:none inline. */
+:where(a, button, input, textarea, select, [tabindex], [role="button"]):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip-link (a11y — landmark navigation clavier) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--espresso);
+  color: var(--crema);
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* prefers-reduced-motion : aucune animation, tout visible (CLAUDE.md §8, Guide QA §2.8) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

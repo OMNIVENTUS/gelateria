@@ -1,0 +1,35 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  font-size: var(--text-xs);
+  line-height: 1;
+  padding: 0.4375rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+}
+
+.outline {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: var(--border-faint);
+}
+.solid {
+  background: var(--accent);
+  color: var(--crema);
+}
+.muted {
+  background: var(--accent-wash);
+  color: var(--caramello-ink);
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+  flex: 0 0 auto;
+}

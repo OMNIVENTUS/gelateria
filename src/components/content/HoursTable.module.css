@@ -1,0 +1,30 @@
+.table {
+  width: 100%;
+}
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 15px 2px;
+  border-top: 1px solid var(--taupe-40);
+}
+.row:first-child {
+  border-top: none;
+}
+.day {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 15px;
+  color: var(--espresso);
+}
+.hours {
+  font-family: var(--font-body);
+  font-weight: var(--fw-body);
+  font-size: 15px;
+  color: var(--espresso-70);
+  font-variant-numeric: tabular-nums;
+}
+.closed {
+  color: var(--taupe);
+}

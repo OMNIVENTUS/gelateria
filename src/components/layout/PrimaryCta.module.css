@@ -1,0 +1,53 @@
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--crema);
+  background: var(--caramello-ink); /* fond CTA — AA texte blanc */
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  transition:
+    background var(--dur-base) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+.cta:hover {
+  background: var(--caramello-press);
+}
+.cta:active {
+  transform: scale(0.97);
+}
+
+.md {
+  font-size: 15px;
+  padding: 8px 8px 8px 24px;
+}
+.lg {
+  font-size: 16px;
+  padding: 10px 10px 10px 30px;
+}
+
+.circle {
+  border-radius: var(--radius-pill);
+  flex: 0 0 auto;
+  background: rgba(246, 241, 232, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--dur-base) var(--ease);
+}
+.md .circle {
+  width: 32px;
+  height: 32px;
+}
+.lg .circle {
+  width: 36px;
+  height: 36px;
+}
+.cta:hover .circle {
+  transform: translate(2px, -1px);
+}

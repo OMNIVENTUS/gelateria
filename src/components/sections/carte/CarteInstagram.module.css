@@ -1,0 +1,41 @@
+/* Encart Instagram. Valeurs exactes de la planche (CarteV2Encart). */
+.wrap {
+  background: var(--crema);
+  padding: 12px 20px;
+}
+.card {
+  background: var(--sabbia);
+  border-radius: var(--radius-card);
+  padding: 28px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.text {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  font-size: 21px;
+  color: var(--espresso);
+}
+
+@media (min-width: 640px) {
+  .wrap {
+    padding: 24px 48px;
+  }
+  .card {
+    padding: 36px 40px;
+  }
+  .text {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    padding: 24px 64px;
+  }
+}

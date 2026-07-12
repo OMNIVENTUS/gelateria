@@ -1,0 +1,44 @@
+.band {
+  background: var(--sabbia);
+  padding: 26px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.track {
+  display: inline-block;
+}
+.run {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 25px;
+  color: var(--espresso);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .track {
+    animation: amMarquee 36s linear infinite;
+  }
+}
+@keyframes amMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+@media (min-width: 640px) {
+  .band {
+    padding: 36px 0;
+  }
+  .run {
+    font-size: 34px;
+  }
+}
+@media (min-width: 1024px) {
+  .run {
+    font-size: 40px;
+  }
+}

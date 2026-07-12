@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint · Typecheck · Build · QA
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Lint d'adhérence (oxlint)
+        run: pnpm run lint
+      - name: Typecheck (tsc strict)
+        run: pnpm typecheck
+      - name: Build static export
+        run: pnpm build
+      - name: Navigateur pour Gate 2
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Gate 2 — QA adversarial (overflow, a11y, CTA, SEO)
+        run: node scripts/qa.mjs
+
+  visual:
+    name: Tests visuels (Chromium · Firefox · WebKit)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Navigateurs Playwright
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Build Storybook
+        run: pnpm build-storybook
+      - name: Servir Storybook + tests visuels (baselines committées)
+        run: |
+          pnpm dlx serve storybook-static -l 6006 --no-clipboard &
+          for i in $(seq 1 60); do
+            curl -sf http://127.0.0.1:6006/index.json >/dev/null && break
+            sleep 1
+          done
+          pnpm exec test-storybook --url http://127.0.0.1:6006 \
+            --browsers chromium firefox webkit --maxWorkers=2
+      - name: Diffs visuels en cas d'échec
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diffs
+          path: tests/**/__diff_output__/**
+          if-no-files-found: ignore

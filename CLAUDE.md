@@ -191,8 +191,19 @@ Réflexe skills d'abord. Toute création ou modification de feature commence par
 
 Repo public. Aucun secret, clé, token ni PII committé. Les valeurs sensibles vivent en variables d'environnement (jamais NEXT_PUBLIC_* pour un secret), et .gitignore interdit les dumps/artefacts de données.
 
-Standards non négociables. TypeScript strict (strict: true, zéro any non justifié). Internationalisable, français par défaut (jamais de FR-only en dur, jamais d'écran non traduit). A11y RGAA / WCAG AA minimum : focus visible, cursor: pointer sur tout cliquable, cibles tactiles ≥ 44×44px, navigation clavier complète, prefers-reduced-motion respecté. Light ET dark systématiquement vérifiés avant de conclure un contrôle visuel. Vitrine oblige : performance (Core Web Vitals / Lighthouse ≥ 90) et SEO sont des critères de done, pas des bonus. Aucun NaN, undefined ou état vide brut à l'écran (fallbacks explicites : empty state, error boundary).
+Standards non négociables. TypeScript strict (strict: true, zéro any non justifié). Internationalisable, français par défaut (jamais de FR-only en dur, jamais d'écran non traduit). A11y RGAA / WCAG AA minimum : focus visible, cursor: pointer sur tout cliquable, cibles tactiles ≥ 44×44px, navigation clavier complète, prefers-reduced-motion respecté. Thème clair unique (invariant marque §2 — pas de notion light/dark). Vitrine oblige : performance (Core Web Vitals / Lighthouse ≥ 90) et SEO sont des critères de done, pas des bonus. Aucun NaN, undefined ou état vide brut à l'écran (fallbacks explicites : empty state, error boundary).
 
 Gate qualité obligatoire (HARD) avant de déclarer une tâche finie. Nécessaire mais pas suffisant : lint, typecheck, test verts. On lance ensuite /codebase-quality-auditor (puis on corrige tout finding lié au diff et on reboucle jusqu'à zéro), et un cycle qa-harness (unit + visuel light/dark + a11y). La preuve de "fait" est le rendu runtime observé, pas le gate vert. Toute vérification de complétion passe par superpowers:verification-before-completion (evidence before assertions).
 
 Déploiement. Site déployé sur GitHub Pages (build statique). Conventional Commits atomiques par tâche, en français. Push uniquement sur demande. Le travail multi-fichiers / multi-couches se traite en mode orchestrateur (décompose → sous-agents → boucle dev/test/QA/fix), jamais en solo.
+
+## QA — ne pas conclure « tests OK » sans le harness
+
+Un gate vert (`pnpm lint && pnpm typecheck`, build, CI) **ne suffit pas** pour affirmer qu'une feature est correctement testée sur ce projet.
+
+Le harness QA piloté par la donnée est initialisé : `.claude/qa.harness.json` + `docs/qa/` (FLOWS, REGRESSIONS, VISUAL, RGAA). **Avant** de dire que les tests sont fonctionnels ou qu'une feature est prête au merge :
+
+1. **`qa-spec-author`** — si la feature touche des parcours non encore documentés : générer/mettre à jour les snippets `docs/qa/` (FLOW, REGRESSIONS, VISUAL, RGAA).
+2. **`qa-harness`** — cycle QA ciblé sur le périmètre modifié : tests visuels stories (`pnpm test:visual`, 3 moteurs), **Gate 1** convergence (`node scripts/convergence.mjs`, seuil ≥ 90), **Gate 2** adversarial (`node scripts/qa.mjs` sur `out/`, 0 bloquant), a11y. Verdict **PASS** dans `docs/qa/QA_REPORT_*.md`.
+
+Rappels projet : thème **light-only** (§2, pas de snapshot dark) ; la vérité visuelle est `standalone_export/` (pas de `visual_truth/`) ; la CI ne lance aucun test, les gates sont locaux.
