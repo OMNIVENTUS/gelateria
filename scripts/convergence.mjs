@@ -85,6 +85,11 @@ async function shootAt(page, vp) {
   await page.setViewportSize({ width: vp.width, height: vp.height });
   await page.waitForTimeout(300);
   await waitImages(page);
+  // Neutralise les zones photo (ré-encodées par le pipeline perf) : Gate 1 mesure
+  // la convergence de DESIGN (layout/typo/couleur), pas la fidélité JPEG↔WebP.
+  // visibility:hidden conserve la mise en page (hauteurs inchangées).
+  await page.addStyleTag({ content: "img{visibility:hidden!important}" });
+  await page.waitForTimeout(60);
   return page.screenshot({ fullPage: true, animations: "disabled", caret: "hide" });
 }
 

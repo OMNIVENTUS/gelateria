@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { fontVariables } from "@/fonts/fonts";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, absoluteUrl } from "@/lib/site";
+import { iceCreamShopJsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -39,6 +40,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className={fontVariables}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(iceCreamShopJsonLd()) }}
+        />
         <a href="#main" className="skip-link">
           Aller au contenu
         </a>
