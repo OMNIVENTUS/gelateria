@@ -18,6 +18,7 @@
     "test:visual:update": "test-storybook -u"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.5",
     "@phosphor-icons/react": "^2.1.7",
     "next": "^15.3.0",
     "react": "^19.1.0",

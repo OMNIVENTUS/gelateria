@@ -1,5 +1,4 @@
-import { SectionHeading } from "@/components";
-import { asset } from "@/lib/site";
+import { SectionHeading, Photo } from "@/components";
 import styles from "./Ingredients.module.css";
 
 /**
@@ -43,11 +42,11 @@ export function Ingredients() {
         ]}
       />
 
-      <img
+      <Photo
         className={styles.band}
-        src={asset("/photos/4L0A8136-Edit.webp")}
+        file="4L0A8136-Edit.webp"
         alt="Texture macro, glace en bac"
-        loading="lazy"
+        sizes="100vw"
       />
 
       <Grid
@@ -60,11 +59,11 @@ export function Ingredients() {
         ]}
       />
 
-      <img
+      <Photo
         className={styles.band}
-        src={asset("/photos/4L0A8175.webp")}
+        file="4L0A8175.webp"
         alt="Texture macro, sorbet mangue passion"
-        loading="lazy"
+        sizes="100vw"
       />
 
       <Grid

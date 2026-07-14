@@ -1,5 +1,4 @@
-import { asset } from "@/lib/site";
-import { Reveal } from "@/components";
+import { Reveal, Photo } from "@/components";
 import { ProTitle } from "./ProTitle";
 import styles from "./ProSignature.module.css";
 
@@ -44,14 +43,11 @@ export function ProSignature() {
             ))}
           </div>
         </div>
-        <img
+        <Photo
           className={styles.band}
-          src={asset("/photos/IMG_9425.webp")}
+          file="IMG_9425.webp"
           alt="Pots préparés à l'atelier"
-          width={1400}
-          height={640}
-          loading="lazy"
-          decoding="async"
+          sizes="100vw"
         />
       </Reveal>
     </section>

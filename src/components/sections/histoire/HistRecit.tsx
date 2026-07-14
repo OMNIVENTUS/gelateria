@@ -1,4 +1,4 @@
-import { asset } from "@/lib/site";
+import { Photo } from "@/components";
 import { HistPlaceholder } from "./HistPlaceholder";
 import styles from "./HistRecit.module.css";
 
@@ -16,13 +16,11 @@ export function HistRecit() {
       </div>
 
       <figure className={styles.figure}>
-        <img
+        <Photo
           className={styles.photo}
-          src={asset("/photos/4L0A7910.webp")}
+          file="4L0A7910.webp"
           alt="Le mur Notre histoire, dans la boutique"
-          width={860}
-          height={520}
-          loading="lazy"
+          sizes="(min-width: 1024px) 680px, 100vw"
         />
         <figcaption className={styles.caption}>
           Le mur de la boutique, à La Marsa.

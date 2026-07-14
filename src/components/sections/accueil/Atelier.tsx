@@ -1,5 +1,4 @@
-import { SectionHeading } from "@/components";
-import { asset } from "@/lib/site";
+import { SectionHeading, Photo } from "@/components";
 import styles from "./Atelier.module.css";
 
 /**
@@ -23,11 +22,11 @@ export function Atelier() {
       <div className={styles.scroller}>
         {SHOTS.map(([file, alt]) => (
           <figure key={file} className={styles.figure}>
-            <img
+            <Photo
               className={styles.photo}
-              src={asset(`/photos/${file}`)}
+              file={file}
               alt={alt}
-              loading="lazy"
+              sizes="(min-width: 1024px) 420px, (min-width: 640px) 330px, 270px"
             />
           </figure>
         ))}

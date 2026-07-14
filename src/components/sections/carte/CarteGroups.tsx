@@ -1,5 +1,4 @@
-import { FlavorCard } from "@/components";
-import { asset } from "@/lib/site";
+import { FlavorCard, Photo } from "@/components";
 import styles from "./CarteGroups.module.css";
 
 /**
@@ -112,14 +111,12 @@ function Bands({ bands }: { bands: Band[] }) {
   if (bands.length === 1 && b) {
     return (
       <div className={styles.band}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={asset(b.src)}
+        <Photo
+          file={b.src}
           alt={b.alt}
-          loading="lazy"
-          decoding="async"
+          sizes="(min-width: 640px) 46vw, 100vw"
           className={styles.bandImg}
-          style={{ objectPosition: b.pos ?? "50% 50%" }}
+          objectPosition={b.pos ?? "50% 50%"}
         />
       </div>
     );
@@ -128,14 +125,12 @@ function Bands({ bands }: { bands: Band[] }) {
     <div className={styles.bandDuo}>
       {bands.map((b) => (
         <div key={b.src} className={styles.band}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={asset(b.src)}
+          <Photo
+            file={b.src}
             alt={b.alt}
-            loading="lazy"
-            decoding="async"
+            sizes="(min-width: 640px) 23vw, 100vw"
             className={styles.bandImg}
-            style={{ objectPosition: b.pos ?? "50% 50%" }}
+            objectPosition={b.pos ?? "50% 50%"}
           />
         </div>
       ))}

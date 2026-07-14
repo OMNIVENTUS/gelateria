@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { asset } from "@/lib/site";
+import { Photo } from "@/components";
 import styles from "./Split.module.css";
 
 /**
@@ -18,12 +18,12 @@ export type SplitProps = {
 export function Split({ src, alt, pos = "50% 50%", reverse = false, children }: SplitProps) {
   return (
     <div className={`${styles.split} ${reverse ? styles.reverse : ""}`}>
-      <img
+      <Photo
         className={styles.img}
-        src={asset(src)}
+        file={src}
         alt={alt}
-        loading="lazy"
-        style={{ objectPosition: pos }}
+        sizes="(min-width: 640px) 50vw, 100vw"
+        objectPosition={pos}
       />
       <div className={styles.text}>{children}</div>
     </div>

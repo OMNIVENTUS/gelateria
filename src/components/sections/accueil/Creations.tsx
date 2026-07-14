@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { SectionHeading, Icon } from "@/components";
-import { asset } from "@/lib/site";
+import { SectionHeading, Icon, Photo } from "@/components";
 import styles from "./Creations.module.css";
 
 /**
@@ -39,12 +38,12 @@ function BentoCell({ file, name, sub, pos, cellClass }: Cell) {
   return (
     <article className={`${styles.cell} ${cellClass ?? ""}`.trim()}>
       <div className={styles.imgWrap}>
-        <img
+        <Photo
           className={styles.img}
-          src={asset(`/photos/${file}`)}
+          file={file}
           alt={name}
-          loading="lazy"
-          style={{ objectPosition: pos }}
+          sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
+          objectPosition={pos}
         />
       </div>
       <div className={styles.caption}>

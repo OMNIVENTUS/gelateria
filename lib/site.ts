@@ -28,3 +28,10 @@ export const asset = (p: string): string =>
   `${BASE_PATH}${p.startsWith("/") ? p : `/${p}`}`;
 
 export const WHATSAPP_LABEL = "Commander sur WhatsApp";
+
+/**
+ * Measurement ID Google Analytics 4 (format « G-XXXXXXXXXX »).
+ * PUBLIC (pas un secret) → `NEXT_PUBLIC_*` est le bon préfixe. Non défini →
+ * GA4 reste dormant (aucun cookie, aucune requête tierce). Voir app/layout.tsx.
+ */
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
