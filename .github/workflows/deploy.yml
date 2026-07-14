@@ -20,6 +20,10 @@ jobs:
     env:
       NEXT_PUBLIC_BASE_PATH: /gelateria
       NEXT_PUBLIC_SITE_URL: https://omniventus.com/gelateria
+      # GA4 Measurement ID (public). Vide → GA4 dormant. Renseigner via
+      # secret/variable de repo une fois la propriété GA4 créée :
+      # NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
+      NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4

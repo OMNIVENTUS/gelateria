@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "@/styles/globals.css";
 import { fontVariables } from "@/fonts/fonts";
-import { SITE_NAME, SITE_TAGLINE, SITE_URL, absoluteUrl } from "@/lib/site";
+import { GA_ID, SITE_NAME, SITE_TAGLINE, SITE_URL, absoluteUrl } from "@/lib/site";
 import { iceCreamShopJsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
@@ -49,6 +50,8 @@ export default function RootLayout({
         </a>
         {children}
       </body>
+      {/* GA4 (recommandation Next.js). Dormant tant que NEXT_PUBLIC_GA_ID est absent. */}
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }
