@@ -1,5 +1,4 @@
-import { Nav, Icon } from "@/components";
-import { asset } from "@/lib/site";
+import { Nav, Icon, Photo } from "@/components";
 import styles from "./Hero.module.css";
 
 /**
@@ -12,14 +11,12 @@ import styles from "./Hero.module.css";
 export function Hero() {
   return (
     <section className={styles.hero} data-hero>
-      <img
+      <Photo
         className={styles.photo}
-        src={asset("/photos/4L0A7834.webp")}
+        file="4L0A7834.webp"
         alt="Cône pistache, lumière naturelle"
-        fetchPriority="high"
-        loading="eager"
-        width={1400}
-        height={933}
+        sizes="100vw"
+        priority
       />
       <div className={styles.scrim} aria-hidden="true" />
 

@@ -8,6 +8,7 @@ export { Card, type CardProps } from "./ui/Card";
 export { SectionHeading, type SectionHeadingProps } from "./ui/SectionHeading";
 export { FlavorCard, type FlavorCardProps } from "./ui/FlavorCard";
 export { WaGlyph, type WaGlyphProps } from "./ui/WaGlyph";
+export { Photo, type PhotoProps } from "./ui/Photo";
 
 // Layout
 export { Wordmark, type WordmarkProps } from "./layout/Wordmark";

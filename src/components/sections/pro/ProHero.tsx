@@ -1,4 +1,4 @@
-import { asset } from "@/lib/site";
+import { Photo } from "@/components";
 import { ProCta } from "./ProCta";
 import styles from "./ProHero.module.css";
 
@@ -21,14 +21,12 @@ export function ProHero() {
             <ProCta />
           </div>
         </div>
-        <img
+        <Photo
           className={styles.media}
-          src={asset("/photos/4L0A8422.webp")}
+          file="4L0A8422.webp"
           alt="Préparation d'un bac dans la vitrine"
-          width={1120}
-          height={1120}
-          fetchPriority="high"
-          decoding="async"
+          sizes="(min-width: 640px) 50vw, 100vw"
+          priority
         />
       </div>
     </section>

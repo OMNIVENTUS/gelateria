@@ -1,5 +1,4 @@
-import { HoursTable, SectionHeading, Icon } from "@/components";
-import { asset } from "@/lib/site";
+import { HoursTable, SectionHeading, Icon, Photo } from "@/components";
 import styles from "./Trouver.module.css";
 
 /**
@@ -112,11 +111,11 @@ export function Trouver() {
 
         <div className={styles.carte}>
           <MapStylisee />
-          <img
+          <Photo
             className={styles.repere}
-            src={asset("/photos/4L0A7979.webp")}
+            file="4L0A7979.webp"
             alt="Repère visuel, la façade Amore Mio"
-            loading="lazy"
+            sizes="(min-width: 640px) 50vw, 100vw"
           />
         </div>
       </div>

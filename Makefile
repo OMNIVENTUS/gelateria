@@ -54,8 +54,8 @@ convergence: build ## Gate 1 — convergence de design vs référence Claude Des
 
 gates: qa convergence ## Lance les deux gates (QA + convergence)
 
-images: ## (Ré)optimise les photos de l'export → public/photos (WebP retina)
-	bash scripts/optimize-images.sh
+images: ## (Ré)optimise les photos de l'export → public/photos (WebP retina + srcset)
+	node scripts/optimize-images.mjs
 
 verify: lint typecheck build ## Gate qualité local : lint + typecheck + build
 	@echo "✓ verify OK"
